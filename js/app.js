@@ -29,7 +29,7 @@ var Player = function() {
     this.sprite = 'images/char-pink-girl.png'
 };
 
-
+var player = [];
 
 
 Player.prototype.update = function(dt) {
