@@ -5,6 +5,8 @@ var Enemy = function() {
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
+    this.x = x;
+    this.y = y;
     this.sprite = 'images/enemy-bug.png';
 };
 
@@ -19,27 +21,39 @@ Enemy.prototype.update = function(dt) {
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+
 };
 
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
-var Player =function() {
-    player
-}
 
-// Draw the enemy on the screen, required method for game
+// Capital P in Player indicates a functional class 
+var Player = function() {
+    // this.x = x;
+    // this.y = y;
+    this.sprite = 'images/char-horn-girl.png';
+};
+
 Player.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+      ctx.drawImage(Resources.get(this.sprite), this.x, this.y);  
+    };
+
+Player.prototype.update = function(dt) {
+};
+
+Player.prototype.handleInput = function() {
+
 };
 
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
-var allEnemies = [];
-console.log(allEnemies);
 // Place the player object in a variable called player
 
+// using this array as a storage of allEnemies functions_EKIPP
+var allEnemies = [];
+var player = new Player ();
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
@@ -53,3 +67,7 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
+
+
+
