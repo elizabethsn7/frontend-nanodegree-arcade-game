@@ -1,5 +1,8 @@
+
+
+
 // Enemies our player must avoid
-var Enemy = function() {
+var Enemy = function(x,y) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
@@ -29,15 +32,11 @@ Enemy.prototype.render = function() {
 // a handleInput() method.
 
 // Capital P in Player indicates a functional class 
-var Player = function() {
-    // this.x = x;
-    // this.y = y;
+var Player = function(x,y) {
+    this.x = x;
+    this.y = y;
     this.sprite = 'images/char-horn-girl.png';
 };
-
-Player.prototype.render = function() {
-      ctx.drawImage(Resources.get(this.sprite), this.x, this.y);  
-    };
 
 Player.prototype.update = function(dt) {
 };
@@ -45,7 +44,14 @@ Player.prototype.update = function(dt) {
 Player.prototype.handleInput = function() {
 
 };
+Player.prototype.render = function() {
+      ctx.drawImage(Resources.get(this.sprite), this.x, this.y);  
+    };
 
+var image = new Image();
+    image.onload = function() {
+        console.log("Loaded image");
+    };
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
