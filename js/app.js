@@ -19,7 +19,10 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-  
+
+    //trying to add a for loop to see if I can get the bugs
+    //to go across the screen.
+    for () 
 
 };
 
@@ -44,6 +47,8 @@ Player.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+    this.sprite 
+
 };
 
 Player.prototype.render = function() {
