@@ -1,17 +1,17 @@
-
-
-
 // Enemies our player must avoid
-var Enemy = function(x,y) {
+var Enemy = function(x, y, speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
+    
     this.x = x;
     this.y = y;
+    this.speed = 10;
     this.sprite = 'images/enemy-bug.png';
 };
+
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
@@ -19,7 +19,10 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+  
+
 };
+
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
@@ -31,35 +34,39 @@ Enemy.prototype.render = function() {
 // This class requires an update(), render() and
 // a handleInput() method.
 
-// Capital P in Player indicates a functional class 
 var Player = function(x,y) {
     this.x = x;
     this.y = y;
-    this.sprite = 'images/char-horn-girl.png';
+    this.sprite = 'images/char-cat-girl.png';
 };
 
 Player.prototype.update = function(dt) {
+    // You should multiply any movement by the dt parameter
+    // which will ensure the game runs at the same speed for
+    // all computers.
 };
 
-Player.prototype.handleInput = function() {
-
-};
 Player.prototype.render = function() {
-      ctx.drawImage(Resources.get(this.sprite), this.x, this.y);  
-    };
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);  
+};
 
-var image = new Image();
-    image.onload = function() {
-        console.log("Loaded image");
-    };
+Player.prototype.handleInput = function(allowedKeys) {
+
+};
+
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
-// using this array as a storage of allEnemies functions_EKIPP
-var allEnemies = [];
-var player = new Player ();
+var enemy1 = new Enemy(330,60,100);
+var enemy2 = new Enemy(75,145,200);
+var enemy3 = new Enemy(200,230,300);
+
+var allEnemies = [enemy1, enemy2, enemy3];
+
+var player = new Player (200,420);
+
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
