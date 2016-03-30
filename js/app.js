@@ -59,7 +59,6 @@ Player.prototype.handleInput = function(allowedKeys) {
     if (allowedKeys === 'up'){
         this.y -= 100;
     }
-    
     if (allowedKeys ==='down'){
         this.y += 100;
     }
@@ -69,6 +68,17 @@ Player.prototype.handleInput = function(allowedKeys) {
     if (allowedKeys === 'right'){
         this.x += 100;
     }
+    if (this.x + 100 >= 505){
+        this.x = this.x - 100;
+    }
+
+    if (this.y + 100 >= 606){
+        this.y = this.y - 100;
+    }
+    if (this.y - 100 <= 0 ){
+        this.y = 606;
+    }
+
 };
 
 
