@@ -42,6 +42,7 @@ var Player = function(x,y) {
     this.sprite = 'images/char-cat-girl.png';
 };
 
+
 Player.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
@@ -55,13 +56,20 @@ Player.prototype.render = function() {
 };
 
 Player.prototype.handleInput = function(allowedKeys) {
-    if (allowedKeys ==='up' && this.x >= 420) {
-        this.sprite += 100;
-
+    if (allowedKeys === 'up'){
+        this.y -= 100;
     }
-
+    
+    if (allowedKeys ==='down'){
+        this.y += 100;
+    }
+    if (allowedKeys === 'left'){
+        this.x -= 100;
+    }
+    if (allowedKeys === 'right'){
+        this.x += 100;
+    }
 };
-
 
 
 // Now instantiate your objects.
@@ -75,6 +83,7 @@ var enemy3 = new Enemy(200,230,300);
 var allEnemies = [enemy1, enemy2, enemy3];
 
 var player = new Player (200,420);
+
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
