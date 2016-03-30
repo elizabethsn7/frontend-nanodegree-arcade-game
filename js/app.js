@@ -8,7 +8,7 @@ var Enemy = function(x, y, speed) {
     
     this.x = x;
     this.y = y;
-    this.speed = 10;
+    this.speed = 100;
     this.sprite = 'images/enemy-bug.png';
 };
 
@@ -19,11 +19,10 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-
-    //trying to add a for loop to see if I can get the bugs
-    //to go across the screen.
-    for () 
-
+    this.x += this.speed*dt;
+        if (this.x > 500){
+            this.x =0;
+        }
 };
 
 
@@ -47,7 +46,7 @@ Player.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    this.sprite 
+
 
 };
 
@@ -56,8 +55,13 @@ Player.prototype.render = function() {
 };
 
 Player.prototype.handleInput = function(allowedKeys) {
+    if (allowedKeys ==='up' && this.x >= 420) {
+        this.sprite += 100;
+
+    }
 
 };
+
 
 
 // Now instantiate your objects.
@@ -71,7 +75,6 @@ var enemy3 = new Enemy(200,230,300);
 var allEnemies = [enemy1, enemy2, enemy3];
 
 var player = new Player (200,420);
-
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
