@@ -37,12 +37,14 @@ Enemy.prototype.render = function() {
 // a handleInput() method.
 
 var Player = function(x,y) {
-    this.x = 200;
-    this.y = 400;
+    this.x = x;
+    this.y = y;
     this.sprite = 'images/char-cat-girl.png';
+    this.movement = 83;
 };
-var canvas_height = 606;
-var canvas_width = 505;
+
+var canvasWidth = 500;
+var canvasHeight = 500;
 
 Player.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
@@ -59,10 +61,10 @@ Player.prototype.render = function() {
 Player.prototype.handleInput = function(allowedKeys) {
     //this moves the player around with arrows
     if (allowedKeys === 'up'){
-        this.y -= 100;
+        this.y -= 90;
     };
     if (allowedKeys ==='down'){
-        this.y += 100;
+        this.y += 90;
     };
     if (allowedKeys === 'left'){
         this.x -= 100;
@@ -70,15 +72,15 @@ Player.prototype.handleInput = function(allowedKeys) {
     if (allowedKeys === 'right'){
         this.x += 100;
     };
+    // if (this.x + 100 >= 505){
+    //     this.x = this.x - 100;
 
-    // //allows player to stay within canvas' right border
-    // if (this.x + 100 >= canvas_width){
-    //     this.x = 505 - 100;
-    // };
-    // if (this.x - 100 <= 0){
-    //     this.x = 0 + 100;
-    // };
-
+    if (this.x + 'right' && this.x + 100 >= 600){
+        this.x = this.x - 100;
+    }
+    if (this.x + 'left' && this.x - 100 <= 0){
+        this.x = this.x + 100;
+    }
 };
 
 
