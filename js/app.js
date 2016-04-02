@@ -40,7 +40,6 @@ var Player = function(x,y) {
     this.x = x;
     this.y = y;
     this.sprite = 'images/char-cat-girl.png';
-    this.movement = 90;
 };
 
 
@@ -69,9 +68,6 @@ Player.prototype.handleInput = function(allowedKeys) {
     }
     if (allowedKeys == 'right'){
         this.x += 100;
-    }
-    if (allowedKeys == 'up' && this.y + this.movement <= 0){
-        this.y = this.y - this.movement;
     }
 
     // placing char girl back at starting position
