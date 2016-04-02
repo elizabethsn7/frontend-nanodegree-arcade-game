@@ -40,11 +40,9 @@ var Player = function(x,y) {
     this.x = x;
     this.y = y;
     this.sprite = 'images/char-cat-girl.png';
-    this.movement = 83;
+    this.movement = 90;
 };
 
-var canvasWidth = 500;
-var canvasHeight = 500;
 
 Player.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
@@ -60,26 +58,34 @@ Player.prototype.render = function() {
 
 Player.prototype.handleInput = function(allowedKeys) {
     //this moves the player around with arrows
-    if (allowedKeys === 'up'){
-        this.y -= 90;
-    };
-    if (allowedKeys ==='down'){
-        this.y += 90;
-    };
-    if (allowedKeys === 'left'){
-        this.x -= 100;
-    };
-    if (allowedKeys === 'right'){
-        this.x += 100;
-    };
-    // if (this.x + 100 >= 505){
-    //     this.x = this.x - 100;
-
-    if (this.x + 'right' && this.x + 100 >= 600){
-        this.x = this.x - 100;
+    if (allowedKeys == 'up'){
+        this.y -= 100;
     }
-    if (this.x + 'left' && this.x - 100 <= 0){
-        this.x = this.x + 100;
+    if (allowedKeys =='down'){
+        this.y += 100;
+    }
+    if (allowedKeys == 'left'){
+        this.x -= 100;
+    }
+    if (allowedKeys == 'right'){
+        this.x += 100;
+    }
+    if (allowedKeys == 'up' && this.y + this.movement <= 0){
+        this.y = this.y - this.movement;
+    }
+
+    // placing char girl back at starting position
+    if (this.y <= 0){
+        this.y = 420;
+    }
+    if (this.y >= 420){
+        this.y = 420;
+    }
+    if (this.x >= 400){
+        this.x = 400;
+    }
+    if (this.x <= 10){
+        this.x = 0;
     }
 };
 
